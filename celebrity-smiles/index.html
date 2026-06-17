@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Celebrity Smiles — Teeth Whitening Bar | Roswell, GA</title>
+  <meta name="description" content="Roswell's premier teeth whitening bar. Professional whitening, teeth gems, LED therapy & more. Walk in or book your appointment today — (470) 249-6384." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:       #FDF0F3;
+      --rose-mid:   #FAE0E7;
+      --rose-deep:  #F2B8C6;
+      --mauve:      #4A2535;
+      --mauve-lt:   #7A4558;
+      --blush:      #D4899A;
+      --blush-lt:   #E8AEBB;
+      --white:      #FFFFFF;
+      --cream:      #FDFAF8;
+      --text-soft:  rgba(74,37,53,0.5);
+      --text-mid:   rgba(74,37,53,0.72);
+      --ff-display: 'Playfair Display', serif;
+      --ff-body:    'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--mauve);
+      font-family: var(--ff-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(253,240,243,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212,137,154,0.22);
+    }
+    .nav-brand {
+      font-family: var(--ff-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--mauve);
+      letter-spacing: 0.02em;
+    }
+    .nav-links { display: flex; gap: 2.25rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mauve-lt);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blush); }
+    .nav-cta {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--blush);
+      text-decoration: none;
+      padding: 0.55rem 1.4rem;
+      border-radius: 50px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--blush-lt); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--rose);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(242,184,198,0.4) 0%, transparent 65%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,137,154,0.15) 0%, transparent 70%);
+      top: 18%; right: 8%;
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    /* Signature animated smile arc */
+    .smile-mark {
+      width: 90px; height: 45px;
+      margin: 0 auto 1.75rem;
+      position: relative;
+    }
+    .smile-arc {
+      stroke: var(--blush);
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-dasharray: 200;
+      stroke-dashoffset: 200;
+      animation: drawSmile 1.5s cubic-bezier(0.4,0,0.2,1) 0.4s forwards;
+    }
+    @keyframes drawSmile { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .smile-arc { animation: none; stroke-dashoffset: 0; }
+    }
+
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 9vw, 7rem);
+      font-weight: 400;
+      line-height: 1.0;
+      color: var(--mauve);
+      margin-bottom: 0.35rem;
+      position: relative;
+    }
+    .hero-title em { font-style: italic; color: var(--blush); }
+    .hero-sub {
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: var(--text-mid);
+      margin: 1.25rem auto 2.75rem;
+      max-width: 420px;
+      line-height: 1.75;
+      position: relative;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+    }
+    .btn-blush {
+      background: var(--blush);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.4rem;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-blush:hover { background: var(--blush-lt); transform: translateY(-1px); }
+    .btn-outline {
+      border: 1.5px solid var(--blush);
+      color: var(--blush);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.4rem;
+      border-radius: 50px;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: var(--blush); color: var(--white); }
+
+    /* TRUST STRIP */
+    .trust-strip {
+      background: var(--rose-deep);
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      font-size: 0.73rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mauve);
+    }
+    .trust-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--mauve);
+      opacity: 0.3;
+      display: inline-block;
+    }
+
+    /* SHARED */
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* INTRO */
+    .intro {
+      background: var(--cream);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    .intro-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--mauve);
+      max-width: 580px;
+      margin: 0 auto 1.5rem;
+    }
+    .intro-title em { font-style: italic; color: var(--blush); }
+    .intro-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.85;
+    }
+
+    /* SERVICES */
+    .services { background: var(--white); padding: 6rem 2rem; }
+    .services-inner { max-width: 1060px; margin: 0 auto; }
+    .services-header { text-align: center; margin-bottom: 3.5rem; }
+    .services-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--mauve);
+      line-height: 1.2;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .service-card {
+      background: var(--rose);
+      border: 1px solid rgba(212,137,154,0.2);
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(212,137,154,0.18);
+    }
+    .service-icon {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--rose-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      color: var(--mauve);
+    }
+    .service-name {
+      font-family: var(--ff-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--mauve);
+      margin-bottom: 0.6rem;
+    }
+    .service-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .service-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.67rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blush);
+      font-weight: 500;
+    }
+
+    /* PROCESS */
+    .process {
+      background: var(--rose-mid);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    .process-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--mauve);
+      margin-bottom: 3.5rem;
+    }
+    .process-steps {
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .step {
+      flex: 1;
+      min-width: 200px;
+      padding: 2rem 1.5rem;
+      border-right: 1px solid rgba(212,137,154,0.3);
+    }
+    .step:last-child { border-right: none; }
+    .step-num {
+      font-family: var(--ff-display);
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: rgba(212,137,154,0.28);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .step-name {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--mauve);
+      margin-bottom: 0.5rem;
+    }
+    .step-desc {
+      font-size: 0.83rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* REVIEWS */
+    .reviews { background: var(--cream); padding: 6rem 2rem; }
+    .reviews-inner { max-width: 1060px; margin: 0 auto; }
+    .reviews-header { text-align: center; margin-bottom: 3.5rem; }
+    .reviews-rating {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 400;
+      color: var(--mauve);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .reviews-stars {
+      color: var(--blush);
+      font-size: 1.3rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+    }
+    .reviews-source {
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .review-card {
+      background: var(--white);
+      border: 1px solid rgba(212,137,154,0.18);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .review-stars-sm {
+      color: var(--blush);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .review-text {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--mauve);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .review-name {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blush);
+    }
+
+    /* MOBILE SERVICE */
+    .mobile-service { background: var(--white); padding: 5rem 2rem; }
+    .mobile-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .mobile-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--mauve);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .mobile-title em { font-style: italic; color: var(--blush); }
+    .mobile-body {
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin-bottom: 1.75rem;
+    }
+    .mobile-perks { list-style: none; }
+    .mobile-perks li {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--mauve);
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(212,137,154,0.18);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .mobile-perks li::before {
+      content: '';
+      width: 16px; height: 1.5px;
+      background: var(--blush);
+      flex-shrink: 0;
+    }
+    .mobile-visual {
+      background: var(--rose);
+      border-radius: 20px;
+      border: 1px solid rgba(212,137,154,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      padding: 2.5rem 2rem;
+    }
+    .mobile-stat {
+      text-align: center;
+      padding: 1.25rem;
+      background: var(--white);
+      border-radius: 12px;
+      width: 100%;
+    }
+    .mobile-stat-num {
+      font-family: var(--ff-display);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--blush);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .mobile-stat-lbl {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    /* CTA BAND */
+    .cta-band {
+      background: var(--blush);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .cta-band-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .cta-band-title em { font-style: italic; }
+    .cta-band-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 2.5rem;
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--blush);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1.1rem 2.75rem;
+      border-radius: 50px;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .btn-white:hover { opacity: 0.9; }
+
+    /* CONTACT */
+    .contact { background: var(--rose); padding: 6rem 2rem; }
+    .contact-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+    }
+    .contact-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+      font-weight: 400;
+      color: var(--mauve);
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+    .contact-title em { font-style: italic; color: var(--blush); }
+    .contact-item { margin-bottom: 1.75rem; }
+    .contact-lbl {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 0.3rem;
+    }
+    .contact-val {
+      font-family: var(--ff-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--mauve);
+    }
+    .contact-val a { color: var(--mauve); text-decoration: none; transition: color 0.2s; }
+    .contact-val a:hover { color: var(--blush); }
+    .hours-table { width: 100%; }
+    .hours-table tr td {
+      font-size: 0.86rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(212,137,154,0.18);
+    }
+    .hours-table tr:last-child td { border-bottom: none; }
+    .hours-table td:last-child { text-align: right; }
+    .mobile-note {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border: 1px solid rgba(212,137,154,0.22);
+      border-radius: 12px;
+    }
+    .mobile-note-lbl {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blush);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .mobile-note-txt {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--mauve);
+      padding: 1.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-brand {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--rose-deep);
+    }
+    .footer-copy {
+      font-size: 0.73rem;
+      font-weight: 300;
+      color: rgba(242,184,198,0.45);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .mobile-inner, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .step { border-right: none; border-bottom: 1px solid rgba(212,137,154,0.25); }
+      .step:last-child { border-bottom: none; }
+    }
+
+    /* SCROLL REVEAL */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-brand">Celebrity Smiles</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#mobile">Mobile</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:4702496384" class="nav-cta">Book Now</a>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-eyebrow">Roswell, Georgia · Premier Whitening Bar</p>
+    <div class="smile-mark" aria-hidden="true">
+      <svg viewBox="0 0 90 45" width="90" height="45" overflow="visible">
+        <path class="smile-arc" d="M 10 10 Q 45 58 80 10" />
+        <circle cx="10" cy="10" r="3.5" fill="#D4899A" opacity="0.7" />
+        <circle cx="80" cy="10" r="3.5" fill="#D4899A" opacity="0.7" />
+      </svg>
+    </div>
+    <h1 class="hero-title">Your most<br /><em>radiant</em> smile<br />starts here.</h1>
+    <p class="hero-sub">Professional teeth whitening, instant results, zero sensitivity — luxury beauty in the heart of Roswell.</p>
+    <div class="hero-actions">
+      <a href="tel:4702496384" class="btn-blush">Call to book — (470) 249-6384</a>
+      <a href="#services" class="btn-outline">See services</a>
+    </div>
+  </section>
+
+  <div class="trust-strip">
+    <div class="trust-item">5-star Google rated</div>
+    <div class="trust-dot" aria-hidden="true"></div>
+    <div class="trust-item">Instant visible results</div>
+    <div class="trust-dot" aria-hidden="true"></div>
+    <div class="trust-item">Zero sensitivity formula</div>
+    <div class="trust-dot" aria-hidden="true"></div>
+    <div class="trust-item">Mobile service available</div>
+  </div>
+
+  <section class="intro reveal">
+    <span class="section-label">About Celebrity Smiles</span>
+    <h2 class="intro-title">Luxury whitening — <em>without</em> the dental chair.</h2>
+    <p class="intro-body">Celebrity Smiles brings Hollywood-level whitening to Roswell, GA. Our professional-grade treatments use the same ingredients trusted by dental offices — delivered in a relaxing, spa-like setting. Walk out with a smile that turns heads, in under an hour.</p>
+  </section>
+
+  <section id="services" class="services">
+    <div class="services-inner">
+      <div class="services-header reveal">
+        <span class="section-label">What we offer</span>
+        <h2 class="services-title">Services crafted for<br />your best smile.</h2>
+      </div>
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">✦</div>
+          <div class="service-name">Teeth Whitening</div>
+          <p class="service-desc">Our signature professional whitening treatment uses dental-grade ingredients to remove years of stains in a single session. Safe, effective, and built for sensitive teeth.</p>
+          <span class="service-tag">Most popular</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">◈</div>
+          <div class="service-name">LED Light Therapy</div>
+          <p class="service-desc">Cold-light LED activation accelerates whitening results and leaves enamel stronger. Used in combination with our whitening treatment for maximum brilliance.</p>
+          <span class="service-tag">Included in session</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">◇</div>
+          <div class="service-name">Teeth Gems</div>
+          <p class="service-desc">Add a touch of sparkle with hand-placed Swarovski tooth gems. Non-invasive, temporary, and completely customizable — the accessory your smile deserves.</p>
+          <span class="service-tag">Add-on service</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">◉</div>
+          <div class="service-name">Skincare &amp; Rejuvenation</div>
+          <p class="service-desc">Complement your new smile with our LED facial mask treatments, designed to target fine lines, discoloration, and dullness for full-face radiance.</p>
+          <span class="service-tag">Premium add-on</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">◎</div>
+          <div class="service-name">Whitening Products</div>
+          <p class="service-desc">Take the results home. We carry a curated selection of professional-grade whitening maintenance products, pens, and kits trusted by dental offices nationwide.</p>
+          <span class="service-tag">Retail available</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" aria-hidden="true">◈</div>
+          <div class="service-name">Mobile Service</div>
+          <p class="service-desc">Can't come to us? We come to you. Celebrity Smiles offers mobile whitening for events, bachelorette parties, photo shoots, and busy professionals across Metro Atlanta.</p>
+          <span class="service-tag">Available on request</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <h2 class="process-title reveal">How it works</h2>
+    <div class="process-steps reveal">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-name">Arrive &amp; consult</div>
+        <p class="step-desc">We assess your current shade and discuss your goal — whether that's a subtle lift or a full celebrity glow.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-name">Treatment</div>
+        <p class="step-desc">Our whitening gel and LED activation work together for 15–45 minutes. Comfortable, relaxing, no pain.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-name">See results</div>
+        <p class="step-desc">Walk out with an immediately brighter smile — often 4–8 shades whiter in a single session.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-name">Maintain</div>
+        <p class="step-desc">Leave with your aftercare kit and home maintenance products to keep your results looking fresh.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="reviews">
+    <div class="reviews-inner">
+      <div class="reviews-header reveal">
+        <span class="section-label">Client reviews</span>
+        <div class="reviews-rating">5.0</div>
+        <div class="reviews-stars">★ ★ ★ ★ ★</div>
+        <div class="reviews-source">Verified Google reviews · Roswell, GA</div>
+      </div>
+      <div class="reviews-grid reveal">
+        <div class="review-card">
+          <div class="review-stars-sm">★★★★★</div>
+          <p class="review-text">"Bridgett has given me my own celebrity smile! What an experience — the technician was so knowledgeable, professional, and patient. Service was unforgettable and I will definitely return."</p>
+          <div class="review-name">— Google Review</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars-sm">★★★★★</div>
+          <p class="review-text">"I got my teeth whitened and am super happy with the results! She was super helpful and friendly. I also bought some wonderful products — I'll definitely be coming back for my new smile."</p>
+          <div class="review-name">— Google Review</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars-sm">★★★★★</div>
+          <p class="review-text">"I drank coffee daily and nothing worked — whitening strips failed every time. Bridgett was able to get rid of all of my coffee stains in one visit. I recommend her without ANY hesitation."</p>
+          <div class="review-name">— Google Review</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mobile" class="mobile-service">
+    <div class="mobile-inner reveal">
+      <div>
+        <span class="section-label">Mobile service</span>
+        <h2 class="mobile-title">We come <em>to you.</em></h2>
+        <p class="mobile-body">Celebrity Smiles offers full mobile whitening service across Metro Atlanta. Perfect for bachelorette parties, photoshoots, corporate events, bridal prep — anywhere you need a glowing smile on demand.</p>
+        <ul class="mobile-perks">
+          <li>Bachelorette &amp; bridal parties</li>
+          <li>Corporate &amp; office events</li>
+          <li>Photo &amp; film shoots</li>
+          <li>Private in-home bookings</li>
+          <li>Available 7 days a week</li>
+        </ul>
+      </div>
+      <div class="mobile-visual" aria-hidden="true">
+        <div class="mobile-stat">
+          <div class="mobile-stat-num">4–8</div>
+          <div class="mobile-stat-lbl">Shades brighter per session</div>
+        </div>
+        <div class="mobile-stat">
+          <div class="mobile-stat-num">&lt;1hr</div>
+          <div class="mobile-stat-lbl">Treatment time</div>
+        </div>
+        <div class="mobile-stat">
+          <div class="mobile-stat-num">0</div>
+          <div class="mobile-stat-lbl">Sensitivity formula</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band reveal">
+    <h2 class="cta-band-title">Ready for your<br /><em>celebrity smile?</em></h2>
+    <p class="cta-band-sub">Call to book your session or ask about mobile service across Metro Atlanta.</p>
+    <a href="tel:4702496384" class="btn-white">Call (470) 249-6384</a>
+  </div>
+
+  <section id="contact" class="contact">
+    <div class="contact-inner reveal">
+      <div>
+        <span class="section-label">Find us</span>
+        <h2 class="contact-title">Come see<br />us in <em>Roswell.</em></h2>
+        <div class="contact-item">
+          <div class="contact-lbl">Address</div>
+          <div class="contact-val">11080 Old Roswell Rd, Suite 207<br />Roswell, GA 30076</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-lbl">Phone</div>
+          <div class="contact-val"><a href="tel:4702496384">(470) 249-6384</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-lbl">Walk-ins</div>
+          <div class="contact-val">Always welcome</div>
+        </div>
+      </div>
+      <div>
+        <span class="section-label">Hours</span>
+        <table class="hours-table">
+          <tr><td>Monday</td><td>7:00 AM – 7:30 PM</td></tr>
+          <tr><td>Tuesday</td><td>8:00 AM – 7:30 PM</td></tr>
+          <tr><td>Wednesday</td><td>8:00 AM – 7:30 PM</td></tr>
+          <tr><td>Thursday</td><td>8:00 AM – 7:30 PM</td></tr>
+          <tr><td>Friday</td><td>8:00 AM – 7:30 PM</td></tr>
+          <tr><td>Saturday</td><td>11:00 AM – 6:00 PM</td></tr>
+          <tr><td style="color:rgba(74,37,53,0.25)">Sunday</td><td style="color:rgba(74,37,53,0.25)">Closed</td></tr>
+        </table>
+        <div class="mobile-note">
+          <div class="mobile-note-lbl">Mobile service</div>
+          <div class="mobile-note-txt">Available across Metro Atlanta for events and private bookings. Call to inquire about availability.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">Celebrity Smiles</div>
+    <div class="footer-copy">11080 Old Roswell Rd, Suite 207 · Roswell, GA 30076 · (470) 249-6384</div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
